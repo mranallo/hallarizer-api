@@ -14,7 +14,7 @@ class App < Sinatra::Base
 
   get '/hollarizer/:text' do |text|
     formatted_param = text.gsub("-", " ")
-    hollarized = "Holla!!! #{formatted_param}"
+    hollarized = "Holla!!!!!! #{formatted_param}"
     JSON.generate(hollarized)
   end
 
