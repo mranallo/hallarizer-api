@@ -1,6 +1,8 @@
 require 'logger'
 require 'sinatra/base'
 require 'json'
+require 'ruby_cowsay'
+
 
 class App < Sinatra::Base
   enable :static
@@ -14,8 +16,9 @@ class App < Sinatra::Base
 
   get '/hollarizer/:text' do |text|
     formatted_param = text.gsub("-", " ")
-    hollarized = "Holla!!!!!! #{formatted_param}"
-    JSON.generate(hollarized)
+    cow = Cow.new({ cow: Cow.cows.shuffle.sample })
+    body = cow.say("#{formatted_param}").gsub(/[\r\n]+/, "<br>").gsub(" ", "&nbsp")
+    "<code>#{body}</code>"
   end
 
 end
