@@ -17,7 +17,7 @@ class App < Sinatra::Base
   get '/say/:text' do |text|
     formatted_param = text.gsub("-", " ")
     cow = Cow.new({ cow: Cow.cows.shuffle.sample })
-    body = cow.say("#{formatted_param}").gsub(/[\r\n]+/, "<br>").gsub(" ", "&nbsp")
+    body = cow.say("Holla!!!! #{formatted_param}").gsub(/[\r\n]+/, "<br>").gsub(" ", "&nbsp")
     "<code>#{body}</code>"
   end
 
