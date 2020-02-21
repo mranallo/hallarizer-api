@@ -16,14 +16,14 @@ class App < Sinatra::Base
 
   get '/say/:text' do |text|
     formatted_param = text.gsub("-", " ")
-    cow = Cow.new({ cow: Cow.cows.shuffle.sample })
+    cow = Cow.new({ cow:  'stegosaurus'})
     body = cow.say("Holla!!!! #{formatted_param}").gsub(/[\r\n]+/, "<br>").gsub(" ", "&nbsp")
     "<code>#{body}</code>"
   end
 
   get '/say2/:text' do |text|
     formatted_param = text.gsub("-", " ")
-    cow = Cow.new({ cow: Cow.cows.shuffle.sample })
+    cow = Cow.new({ cow:  'stegosaurus'})
     body = cow.say("Holla!!!! #{formatted_param}")
     "#{body}"
   end
