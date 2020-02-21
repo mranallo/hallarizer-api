@@ -14,7 +14,7 @@ class App < Sinatra::Base
   end
 
 
-  get '/hollarizer/:text' do |text|
+  get '/say/:text' do |text|
     formatted_param = text.gsub("-", " ")
     cow = Cow.new({ cow: Cow.cows.shuffle.sample })
     body = cow.say("#{formatted_param}").gsub(/[\r\n]+/, "<br>").gsub(" ", "&nbsp")
